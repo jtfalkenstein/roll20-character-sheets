@@ -1,80 +1,314 @@
-<div class="3colrow">
-    <div class="col">
-    	<label>Name:</label><input type="text" name="attr_character_name" />
-        <label>Health:</label><input type="number" name="attr_health" />
-        <label></label>
-	</div>
-
-	<div class="col">
-		<img src="https://upload.wikimedia.org/wikipedia/en/2/21/Castle_Falkenstein_Cover.jpg" />
-	</div>
-
-	<div class="col">
-		<label>Setting:</label><input type="text" name="attr_setting" />
-		<label>Race:</label><input type="text" name="attr_race" />
-	</div>
-
-</div>
-
-<hr/>
-<div class="3colrow">
-	<div class="col">
-		<h2>Attributes</h2>
-
-		<label>Agility </label><input type="text" name='attr_agility' class='sheet-short'>
-        <button type='roll' name='roll_testattack' value='&{template:default} {{name=@{character_name}}} {{result=[[1d20 + @{agility}]]}}'></button><span class='dee'>d</span>
-        <br />
-		<label>Smarts </label><input type="text" name='attr_smarts' class='sheet-short'>
-        <button type='roll' name='roll_testattack' value='&{template:default} {{name=@{character_name}}} {{result=[[1d20 + @{smarts}]]}}'></button><span class='dee'>d</span>
-        <br />
-		<label>Spirit </label><input type="text" name='attr_spirit' class='sheet-short'>
-        <button type='roll' name='roll_testattack' value='&{template:default} {{name=@{character_name}}} {{result=[[1d20 + @{spirit}]]}}'></button><span class='dee'>d</span>
-        <br />
-		<label>Strength </label><input type="text" name='attr_strength' class='sheet-short'>
-        <button type='roll' name='roll_testattack' value='&{template:default} {{name=@{character_name}}} {{result=[[1d20 + @{strength}]]}}'></button><span class='dee'>d</span>
-        <br />
-		<label>Vigor </label><input type="text" name='attr_vigor' class='sheet-short' value='25'>
-        <button type='roll' name='roll_testattack' value='&{template:default} {{name=@{character_name}}} {{result=[[1d20 + @{vigor}]]}}'></button><span class='dee'>d</span>
-        <hr />
-        
-        <h2">Skills</h2>
-        
-        <fieldset class="repeating_skills">
-            <select name="attr_dtype" class="dtype">
-                <option value="d4">d4</option>
-                <option value="d6">d6</option>
-                <option value="d8">d8</option>
-                <option value="d10">d10</option>
-                <option value="d12">d12</option>
-            </select>
-            <input type="text" name="attr_skillname" />
-        </fieldset>
-
-	</div>
-
-	<div class="col">
-		<h2>Derived Stats</h2>
-        <div class="stats">
-            <h3>Base</h3><h3>Max</h3>
-            <label>Pace</label><input type="text" name="attr_pace" /><input type="text" name="attr_pace_max"  />
-            <label>Parry</label><input type="text" name="attr_parry" /><input type="text" name="attr_parry_max" />
-            <label>Toughness</label><input type="text" name="attr_toughness"  /><input type="text" name="attr_toughness_max"  />
-            <label>Charisma</label><input type="text" name="attr_charisma" " /><input type="text" name="attr_charisma_max"  />
+    <div class="3colrow">
+        <div class="col">
+            <label>Name:</label><input type="text" name="attr_character_name" /><br/>
+            <label>Race:
+                <select name="attr_race">
+                    <option selected value="human">Human</option>
+                    <option value="faerie">Faerie</option>
+                    <option value="dwarf">Dwarf</option>
+                    <option value="dragon">Dragon</option>
+                    <option value="unicorn">Unicorn</option>
+                    <option value="beast_man">Beast Man</option>
+                </select>
+            </label>
+            <label>Health:</label><input type="number" name="attr_health" /><br/>
+            <label>Money (c):</label><input type="number" name="attr_money_c" /><br/>
+            <label>Money (p):</label><input type="number" name="attr_money_p" /><br/>
         </div>
-	</div>
 
-	<div class="col">
+        <div class="col">
+            <img src="https://upload.wikimedia.org/wikipedia/en/2/21/Castle_Falkenstein_Cover.jpg" />
+        </div>
+        <div class="col">
+            <h3>Languages</h3>
+            <fieldset class="repeating_languages"> 
+                <input type="text" name="attr_language" /> 
+            </fieldset>
+    </div>
 
-		<h2>Hindrances</h2>
+    <hr/>
+    <div class="3colrow">
+        <div class="col">
+            <h2>Abilities</h2>
+            
+            <div class="sheet-ability-block">
+                <label>Athletics ♣</label>
+                <select name="attr_athletics" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Charisma ♥</label>
+                <select name="attr_charisma" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Comeliness ♥</label>
+                <select name="attr_comeliness" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Connections ♠</label>
+                <select name="attr_connections" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Courage ♥</label>
+                <select name="attr_courage" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Education ♦</label>
+                <select name="attr_education" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Etherealness ♠</label>
+                <select name="attr_etherealness" class='sheet-short-select'>
+                    <option selected value="0">N/A</option>
+                    <option value="2">PR</option>
+                    <option value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Exchequer ♠</label>
+                <select name="attr_exchequer" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Fencing ♣</label>
+                <select name="attr_fencing" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Fisticuffs ♣</label>
+                <select name="attr_fisticuffs" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />   
+            <div class="sheet-ability-block">
+                <label>Glamour ♥</label>
+                <select name="attr_glamour" class='sheet-short-select'>
+                    <option selected value="0">N/A</option>
+                    <option value="2">PR</option>
+                    <option value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Helmsmanship ♣</label>
+                <select name="attr_helmsmanship" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <div class="sheet-ability-block">
+                <label>Kindred Powers ♣</label>
+                <select name="attr_kindred_powers" class='sheet-short-select'>
+                    <option selected value="0">N/A</option>
+                    <option value="2">PR</option>
+                    <option value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Marksmanship ♣</label>
+                <select name="attr_marksmanship" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br /> 
+        </div>
 
-		<textarea name="attr_hindrances"></textarea>
+        <div class="col">
+            <br/><br/>
+            <div class="sheet-ability-block">
+                <label>Perception ♦</label>
+                <select name="attr_perception" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Performance ♥</label>
+                <select name="attr_performance" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Physician ♦</label>
+                <select name="attr_physician" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Physique ♣</label>
+                <select name="attr_physique" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Social Graces ♥</label>
+                <select name="attr_social_graces" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Sorcery ♦</label>
+                <select name="attr_sorcery" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Stealth ♣</label>
+                <select name="attr_stealth" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+            <div class="sheet-ability-block">
+                <label>Tinkering ♦</label>
+                <select name="attr_tinkering" class='sheet-short-select'>
+                    <option value="2">PR</option>
+                    <option selected value="4">AV</option>
+                    <option value="6">GD</option>
+                    <option value="8">GR</option>
+                    <option value="10">EXC</option>
+                    <option value="12">EXT</option>
+                </select>
+            </div>
+            <br />
+        </div>
 
-		<hr/>
+        <div class="col">
 
-		<h2>Edges</h2>
+            <h2>Items on Hand</h2>
 
-		<textarea name="attr_edges"></textarea>
+            <textarea name="attr_items"></textarea>
 
-	</div>
+        </div>
 
-</div>
+    </div>
